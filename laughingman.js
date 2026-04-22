@@ -1,6 +1,6 @@
 const SQUARE_COUNT=15;
 const TIMER=16.6;
-const SPEED = 5;
+const SPEED = 10;
 document.addEventListener('DOMContentLoaded', ()=>{
     document.querySelector("#square").addEventListener("click", ()=>{
         alert("You clickered me");
@@ -18,12 +18,23 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
     
     Array.from(box.children).forEach((element)=>{
-        let dx = SPEED*Math.random()*2-1; // -1 to 1 random
-        let dy = SPEED*Math.random()*2-1;
+        const parent = element.parentElement;
+        const MaxX = parent.clientWidth - element.clientWidth;
+        const MaxY = parent.clientHeight - element.clientHeight;
+
+        let dx = SPEED*(Math.random()*2-1); // -1 to 1 random
+        let dy = SPEED*(Math.random()*2-1);
         
         let x = parseInt(element.style.left || 225);
         let y = parseInt(element.style.top || 175);
         setInterval(()=>{
+
+            if(x <= 0 || x >= MaxX){
+                dx *= -1;
+            }
+            if(y <=0 || y >= MaxY){
+                dy*=-1;
+            }
             x+=dx;
             y+=dy;
 
