@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         //set attributes/properties  of the element
         square.src="laughing_man.jpg";
         square.alt="Catch the laughing man!";
-        square.class="square";
+        square.className ="square";
         box.appendChild(square);
     }
 });
