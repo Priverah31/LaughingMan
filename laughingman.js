@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
     
     Array.from(box.children).forEach((element)=>{
-        const parent = element.parentElement;
+        const parent = elements.parentElement;
         const MaxX = parent.clientWidth - element.clientWidth;
         const MaxY = parent.clientHeight - element.clientHeight;
 
@@ -44,5 +44,4 @@ document.addEventListener('DOMContentLoaded', ()=>{
     
     });
        
-
 });
