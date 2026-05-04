@@ -28,12 +28,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let x = parseInt(element.style.left || 225);
         let y = parseInt(element.style.top || 175);
         setInterval(()=>{
+            let collide = false;
 
             if(x <= 0 || x >= MaxX){
                 dx *= -1;
+                collide=true;
             }
             if(y <=0 || y >= MaxY){
                 dy*=-1;
+                collide = true;
+            }
+            if (collide){
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            box.style.borderColor = `rgb(${r}, ${g}, ${b})`;
             }
             x+=dx;
             y+=dy;
@@ -43,5 +52,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         },TIMER)
     
     });
+    
+    
        
 });
